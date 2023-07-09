@@ -73,8 +73,8 @@ def canny_algorithm_vid2(cap):
     cv2.destroyAllWindows()
 
 
-def find_edge_of_mask_vid(image, height, width):
-    edges = canny_func_video(image, 50, 150)
+def find_edge_of_mask_vid(image, height, width, threshold1, threshold2):
+    edges = canny_func_video(image, threshold1, threshold2)
     polygons = np.array([[0, height], [width, height], [
                         width // 2, height // 1.5]], np.int32)
     mask = np.zeros_like(edges)
@@ -83,8 +83,9 @@ def find_edge_of_mask_vid(image, height, width):
     return masked_vid
 
 
-def better_hough_line_func_vid(image, image_height, image_width):
-    masked_edges = find_edge_of_mask_vid(image, image_height, image_width)
+def better_hough_line_func_vid(image, image_height, image_width, threshold1, threshold2):
+    masked_edges = find_edge_of_mask_vid(
+        image, image_height, image_width, threshold1, threshold2)
     lines = cv2.HoughLinesP(masked_edges, rho=1, theta=np.pi /
                             180, threshold=120, minLineLength=55, maxLineGap=30)
     left_line, right_line = calculate_avarage_slope_and_b(image, lines)
