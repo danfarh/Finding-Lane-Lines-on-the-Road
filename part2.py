@@ -6,7 +6,7 @@ def canny_func(image):
     gray_image = grayscale_image(image)
     gaussian_blur_image = cv2.GaussianBlur(gray_image, (5, 5), 2)
     median_iamge = cv2.medianBlur(gaussian_blur_image, 5)
-    edges = cv2.Canny(image=median_iamge, threshold1=110, threshold2=150)
+    edges = cv2.Canny(image=median_iamge, threshold1=50, threshold2=150)
     return edges
 
 

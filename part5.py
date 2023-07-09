@@ -11,7 +11,7 @@ def make_coordinates(image, line_parameters):
         slope, b = 0.0001, 0
 
     y1 = image.shape[0]
-    y2 = int(y1*(3.6 / 5))
+    y2 = int(y1*(3.57 / 5))
     x1 = int((y1 - b)/slope)
     x2 = int((y2 - b)/slope)
     
@@ -42,7 +42,7 @@ def calculate_avarage_slope_and_b(image, lines):
 def draw_line_on_image(image, coordinates):
     final_line_image = np.copy(image)
     result = cv2.line(final_line_image, (coordinates[0], coordinates[1]), (coordinates[2], coordinates[3]),
-                      color=(0, 0, 255), thickness=3)
+                      color=(0, 0, 255), thickness=2)
     return result
 
 
