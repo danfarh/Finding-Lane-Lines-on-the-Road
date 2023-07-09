@@ -12,7 +12,6 @@ def grayscale_image(image):
 
 
 def resize_image(image):
-    # resized_image = cv2.resize(image, (image.shape[0]-500, image.shape[1]-500))
     resized_image = cv2.resize(image, (600, 600))
     return resized_image
 

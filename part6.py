@@ -71,8 +71,8 @@ if __name__ == '__main__':
     vid1 = read_video('data/vid1.mp4')
     # display_video(vid1)
     # canny_algorithm_vid1(vid1)
-    # find_edge_of_mask_video1(vid1)
-    better_hough_line_func_video(vid1)
+    find_edge_of_mask_video1(vid1)
+    # better_hough_line_func_video(vid1)
 
     # video 2
     vid2 = read_video('data/vid2.mp4')
