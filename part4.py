@@ -7,8 +7,8 @@ from part3 import find_edge_of_mask_img
 def hough_line_func(image):
     height, width = image.shape[:2]
     masked_edges = find_edge_of_mask_img(image, height, width)
-    lines = cv2.HoughLinesP(masked_edges, rho=0.75, theta=np.pi /
-                            180, threshold=120, minLineLength=55, maxLineGap=30)
+    lines = cv2.HoughLinesP(masked_edges, rho=1, theta=np.pi /
+                            180, threshold=130, minLineLength=55, maxLineGap=30)
 
     # Draw the lines on the original image
     line_image = np.copy(image)
