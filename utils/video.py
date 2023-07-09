@@ -35,44 +35,6 @@ def canny_func_video(image, threshold1, threshold2):
     return edges
 
 
-def canny_algorithm_vid1(cap):
-    if (cap.isOpened() == False):
-        print("Error opening video stream or file")
-
-    while (cap.isOpened()):
-        ret, frame = cap.read()
-        if ret == True:
-            edges = canny_func_video(
-                image=frame, threshold1=110, threshold2=200)
-            cv2.imshow('Frame', edges)
-            if cv2.waitKey(25) & 0xFF == ord('q'):
-                break
-        else:
-            break
-
-    cap.release()
-    cv2.destroyAllWindows()
-
-
-def canny_algorithm_vid2(cap):
-    if (cap.isOpened() == False):
-        print("Error opening video stream or file")
-
-    while (cap.isOpened()):
-        ret, frame = cap.read()
-        if ret == True:
-            edges = canny_func_video(
-                image=frame, threshold1=100, threshold2=120)
-            cv2.imshow('Frame', edges)
-            if cv2.waitKey(25) & 0xFF == ord('q'):
-                break
-        else:
-            break
-
-    cap.release()
-    cv2.destroyAllWindows()
-
-
 def find_edge_of_mask_vid(image, height, width, threshold1, threshold2):
     edges = canny_func_video(image, threshold1, threshold2)
     polygons = np.array([[0, height], [width, height], [
